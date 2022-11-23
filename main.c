@@ -25,8 +25,8 @@ int get_number(void)
 	return selNum;
 }
 
-int check_gameEnd(void){
-	
+int check_gameEnd(void)
+{
 	int res = BINGO_RES_UNFINISHED;
 	if(bingo_countCompletedLine() >= N_LINE)
 		res = BINGO_RES_FINISHED;
@@ -36,6 +36,7 @@ int check_gameEnd(void){
 
 int main(int argc, char *argv[]) {
 	
+	int selNum;
 	srand((unsigned)time(NULL));
 	
 	//opening
@@ -45,7 +46,7 @@ int main(int argc, char *argv[]) {
 	printf("**********************************************************\n");
 	printf("==========================================================\n\n\n\n\n");
 	
-	int selNum;
+
 	
 	//game
 	
@@ -64,7 +65,7 @@ int main(int argc, char *argv[]) {
 		selNum = get_number();
 		
 		//update the board status
-		 bingo_inputNum(selNum);
+		bingo_inputNum(selNum);
 	}
 	
 	
@@ -79,6 +80,8 @@ int main(int argc, char *argv[]) {
 	printf("                          YOU WIN!                        \n");
 	printf("**********************************************************\n");
 	printf("==========================================================\n\n");
+	
+	bingo_print();
 	
 	return 0;
 }
